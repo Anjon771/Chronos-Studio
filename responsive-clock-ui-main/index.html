@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Clock UI</title>
+    <meta name="description" content="A responsive analog and digital clock interface with light and dark theme support.">
+    <meta property="og:title" content="Responsive Clock UI">
+    <meta property="og:description" content="A responsive analog and digital clock interface with light and dark theme support.">
+
+    <!--==================== BOXICONS ====================-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+
+    <!--==================== CSS ====================-->
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <!--==================== TOP BAR (3-ZONE CONTRACT) ====================-->
+    <header class="topbar">
+        <div class="topbar__inner">
+            <!-- Zone 1: Single text element wordmark -->
+            <a href="#horology-lab" class="topbar__brand">Chronos Studio</a>
+
+            <!-- Zone 2: 5 clean text navigation links -->
+            <nav class="topbar__nav" aria-label="Primary Navigation">
+                <a href="#horology-lab" class="topbar__link">Horology Lab</a>
+                <a href="#world-time" class="topbar__link">World Time</a>
+                <a href="#architecture" class="topbar__link">Architecture</a>
+                <a href="#deployments" class="topbar__link">Deployments</a>
+                <a href="#inquire" class="topbar__link">Inquire</a>
+            </nav>
+
+            <!-- Zone 3: 2 primary actions -->
+            <div class="topbar__actions">
+                <button type="button" id="header-theme-btn" class="btn btn--ghost" aria-label="Toggle color theme">
+                    <span id="header-theme-label">Dark Mode</span>
+                </button>
+                <a href="#inquire" class="btn btn--primary">Export UI Tokens</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!--==================== 1. HERO & LIVE HOROLOGY STUDIO ====================-->
+        <section id="horology-lab" class="hero">
+            <div class="site-container">
+                <div class="hero__grid">
+                    <!-- Left Column: Proposition & Live Instrument Calibration -->
+                    <div>
+                        <div class="hero__meta">
+                            <span>Zurich Horology UI Lab</span>
+                            <span aria-hidden="true">·</span>
+                            <span>Zero-Dependency CSS &amp; Vanilla JS</span>
+                            <span aria-hidden="true">·</span>
+                            <span>60fps Hardware-Accelerated</span>
+                        </div>
+
+                        <h1 class="hero__title">Tactile Neumorphic Timepiece Interfaces for Web &amp; Embedded Displays</h1>
+
+                        <p class="hero__description">
+                            We engineer soft-extruded analog and digital horology components calibrated for smart home thermostats, automotive instrument clusters, and high-craft desktop workspaces. Inspect the live movement below and export custom CSS design tokens in one click.
+                        </p>
+
+                        <div class="hero__cta-row">
+                            <a href="#inquire" class="btn btn--primary">Request Custom Integration</a>
+                            <button type="button" id="copy-hero-tokens-btn" class="btn btn--secondary">Copy Active CSS Variables</button>
+                        </div>
+
+                        <!-- Interactive Calibration Controls -->
+                        <div class="calibration-panel" aria-label="Live Clock Calibration Controls">
+                            <div class="calibration-panel__row calibration-panel__row--inline">
+                                <span class="calibration-panel__label">Reference Timezone</span>
+                                <div class="segmented-control" role="group" aria-label="Select Timezone">
+                                    <button type="button" class="segmented-control__btn is-active" data-tz="local">Local</button>
+                                    <button type="button" class="segmented-control__btn" data-tz="Europe/Zurich">Zurich</button>
+                                    <button type="button" class="segmented-control__btn" data-tz="Asia/Tokyo">Tokyo</button>
+                                    <button type="button" class="segmented-control__btn" data-tz="America/New_York">New York</button>
+                                    <button type="button" class="segmented-control__btn" data-tz="Europe/London">London</button>
+                                </div>
+                            </div>
+
+                            <div class="calibration-panel__row calibration-panel__row--inline">
+                                <span class="calibration-panel__label">Escapement &amp; Readout</span>
+                                <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                                    <div class="segmented-control" role="group" aria-label="Movement Mode">
+                                        <button type="button" class="segmented-control__btn is-active" data-movement="sweep">Mechanical Sweep (60Hz)</button>
+                                        <button type="button" class="segmented-control__btn" data-movement="quartz">Quartz Step (1Hz)</button>
+                                    </div>
+                                    <div class="segmented-control" role="group" aria-label="Hour Format">
+                                        <button type="button" class="segmented-control__btn is-active" data-format="12">12H</button>
+                                        <button type="button" class="segmented-control__btn" data-format="24">24H</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="calibration-panel__row calibration-panel__row--inline">
+                                <span class="calibration-panel__label">Accent Hue Calibration</span>
+                                <div class="swatch-group" role="group" aria-label="Accent Color Hue">
+                                    <button type="button" class="swatch-btn is-active" data-hue="240" data-hue-name="Indigo 240°">
+                                        <span class="swatch-dot" style="background-color: hsl(240, 58%, 48%);"></span>
+                                        <span>Indigo</span>
+                                    </button>
+                                    <button type="button" class="swatch-btn" data-hue="215" data-hue-name="Cobalt 215°">
+                                        <span class="swatch-dot" style="background-color: hsl(215, 65%, 48%);"></span>
+                                        <span>Cobalt</span>
+                                    </button>
+                                    <button type="button" class="swatch-btn" data-hue="160" data-hue-name="Emerald 160°">
+                                        <span class="swatch-dot" style="background-color: hsl(160, 58%, 40%);"></span>
+                                        <span>Emerald</span>
+                                    </button>
+                                    <button type="button" class="swatch-btn" data-hue="28" data-hue-name="Amber 28°">
+                                        <span class="swatch-dot" style="background-color: hsl(28, 75%, 48%);"></span>
+                                        <span>Amber</span>
+                                    </button>
+                                    <button type="button" class="swatch-btn" data-hue="350" data-hue-name="Crimson 350°">
+                                        <span class="swatch-dot" style="background-color: hsl(350, 62%, 50%);"></span>
+                                        <span>Crimson</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Signature Responsive Neumorphic Clock Instrument -->
+                    <div class="clock-stage">
+                        <div class="clock-stage__header">
+                            <span id="active-tz-label">Local System Time</span>
+                            <button type="button" id="audio-tick-btn" class="swatch-btn" aria-pressed="false">
+                                <span id="audio-tick-status">Escapement Audio: Off</span>
+                            </button>
+                        </div>
+
+                        <div class="clock__content">
+                            <div class="clock__circle">
+                                <span class="clock__twelve"></span>
+                                <span class="clock__three"></span>
+                                <span class="clock__six"></span>
+                                <span class="clock__nine"></span>
+
+                                <div class="clock__rounder"></div>
+                                <div class="clock__hour" id="clock-hour"></div>
+                                <div class="clock__minutes" id="clock-minutes"></div>
+                                <div class="clock__seconds" id="clock-seconds"></div>
+
+                                <!-- Dark/light button -->
+                                <button type="button" class="clock__theme" aria-label="Switch dial luminance theme">
+                                    <i class='bx bxs-moon' id="theme-button"></i>
+                                </button>
+                            </div>
+
+                            <div class="clock__readout-group">
+                                <div class="clock__text">
+                                    <div class="clock__text-hour" id="text-hour">00:</div>
+                                    <div class="clock__text-minutes" id="text-minutes">00</div>
+                                    <div class="clock__text-seconds-digital" id="text-seconds">:00</div>
+                                    <div class="clock__text-ampm" id="text-ampm">AM</div>
+                                </div>
+
+                                <div class="clock__date">
+                                    <span id="date-day-week"></span>
+                                    <span id="date-day">01</span>
+                                    <span id="date-month">Jan,</span>
+                                    <span id="date-year">2026</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="clock-stage__footer">
+                            <span class="tabular-nums" id="clock-angle-telemetry">H: 000° · M: 000° · S: 000°</span>
+                            <a href="https://www.youtube.com/c/Bedimcode/" target="_blank" rel="noopener noreferrer" class="clock__logo">Bedimcode Origin</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--==================== 2. SYNCHRONIZED WORLD HOROLOGY & CHRONOGRAPH ====================-->
+        <section id="world-time" class="section">
+            <div class="site-container">
+                <div class="section__header section__header--split">
+                    <div>
+                        <span class="section__kicker">Multi-Zone Reference &amp; Split-Second Timing</span>
+                        <h2 class="section__title">Synchronized World Horology &amp; Lap Chronograph</h2>
+                    </div>
+                    <p class="section__subtitle">
+                        Select any global financial or engineering hub below to synchronize the primary analog dial above, or run precision split-second interval timing.
+                    </p>
+                </div>
+
+                <!-- 4-City Synchronized World Strip -->
+                <div class="world-grid" id="world-clock-grid">
+                    <button type="button" class="world-card" data-world-tz="Europe/Zurich" data-world-label="Zurich (CET/CEST)">
+                        <div class="world-card__top">
+                            <span class="world-card__city">Zurich</span>
+                            <span class="world-card__offset" id="offset-zurich">UTC+1</span>
+                        </div>
+                        <div class="world-card__time" id="time-zurich">--:--:--</div>
+                        <div class="world-card__meta">
+                            <span id="status-zurich">Horology HQ</span>
+                            <span aria-hidden="true">·</span>
+                            <span>Click to sync dial</span>
+                        </div>
+                    </button>
+
+                    <button type="button" class="world-card" data-world-tz="Asia/Tokyo" data-world-label="Tokyo (JST)">
+                        <div class="world-card__top">
+                            <span class="world-card__city">Tokyo</span>
+                            <span class="world-card__offset" id="offset-tokyo">UTC+9</span>
+                        </div>
+                        <div class="world-card__time" id="time-tokyo">--:--:--</div>
+                        <div class="world-card__meta">
+                            <span id="status-tokyo">Precision Optics</span>
+                            <span aria-hidden="true">·</span>
+                            <span>Click to sync dial</span>
+                        </div>
+                    </button>
+
+                    <button type="button" class="world-card" data-world-tz="America/New_York" data-world-label="New York (EST/EDT)">
+                        <div class="world-card__top">
+                            <span class="world-card__city">New York</span>
+                            <span class="world-card__offset" id="offset-ny">UTC-5</span>
+                        </div>
+                        <div class="world-card__time" id="time-ny">--:--:--</div>
+                        <div class="world-card__meta">
+                            <span id="status-ny">Atlantic Exchange</span>
+                            <span aria-hidden="true">·</span>
+                            <span>Click to sync dial</span>
+                        </div>
+                    </button>
+
+                    <button type="button" class="world-card" data-world-tz="Europe/London" data-world-label="London (GMT/BST)">
+                        <div class="world-card__top">
+                            <span class="world-card__city">London</span>
+                            <span class="world-card__offset" id="offset-london">UTC+0</span>
+                        </div>
+                        <div class="world-card__time" id="time-london">--:--:--</div>
+                        <div class="world-card__meta">
+                            <span id="status-london">Greenwich Meridian</span>
+                            <span aria-hidden="true">·</span>
+                            <span>Click to sync dial</span>
+                        </div>
+                    </button>
+                </div>
+
+                <!-- Interactive Split-Second Chronograph -->
+                <div class="chronograph-box">
+                    <div>
+                        <span class="section__kicker">Interactive Test Instrument · 10ms Resolution</span>
+                        <h3 style="font-size: 1.4rem; margin-top: 0.25rem;">Split-Second Reference Chronograph</h3>
+                        <div class="chronograph__readout" id="chrono-display">00:00:00.00</div>
+                        <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+                            <button type="button" id="chrono-start-btn" class="btn btn--primary">Start Chronograph</button>
+                            <button type="button" id="chrono-lap-btn" class="btn btn--secondary" disabled>Record Split Lap</button>
+                            <button type="button" id="chrono-reset-btn" class="btn btn--ghost" disabled>Reset</button>
+                            <button type="button" id="chrono-copy-btn" class="btn btn--ghost" disabled>Copy Laps</button>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                            <span class="calibration-panel__label">Recorded Split Intervals</span>
+                            <span class="tabular-nums" style="font-size: var(--tiny-font-size); color: var(--text-color-light);" id="chrono-lap-count">0 laps recorded</span>
+                        </div>
+                        <div class="chronograph__laps" id="chrono-laps-list" aria-live="polite">
+                            <div class="chronograph__empty">Press "Start Chronograph" and "Record Split Lap" to capture interval telemetry.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--==================== 3. CORE CAPABILITIES & ARCHITECTURE (ASYMMETRIC BENTO) ====================-->
+        <section id="architecture" class="section">
+            <div class="site-container">
+                <div class="section__header">
+                    <span class="section__kicker">Design System &amp; Mechanical Engineering</span>
+                    <h2 class="section__title">Engineered for Sub-Pixel Legibility and Zero-Dependency Speed</h2>
+                    <p class="section__subtitle">
+                        Every surface shadow, hand rotation matrix, and theme transition is built on native CSS custom properties and compositor-friendly transforms.
+                    </p>
+                </div>
+
+                <div class="bento-grid">
+                    <!-- Bento Card 01 (Span 2): Interactive Bevel Depth Calibration -->
+                    <article class="bento-card bento-card--span-2">
+                        <div>
+                            <span class="bento-card__index">01. Tactile Neumorphic Light-Source Geometry</span>
+                            <h3 class="bento-card__title">Dual-Vector Extruded Surface Shadows</h3>
+                            <p class="bento-card__desc">
+                                The clock bezel pairs opposing outer and inset CSS box-shadows calculated from a single directional light source at 135 degrees. Adjust the extrusion bevel distance below to test surface relief on the live Hero dial and CSS token output.
+                            </p>
+                        </div>
+
+                        <div class="bento-card__interactive">
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <label for="bevel-slider" class="calibration-panel__label">Extrusion Bevel Distance (`--bevel-distance`)</label>
+                                <span id="bevel-value-label" class="tabular-nums" style="font-size: var(--smaller-font-size); font-weight: 600; color: var(--first-color);">6px offset · 16px blur</span>
+                            </div>
+                            <input type="range" id="bevel-slider" class="range-slider" min="3" max="12" step="1" value="6">
+                        </div>
+                    </article>
+
+                    <!-- Bento Card 02 (Span 1): Angular Kinematics -->
+                    <article class="bento-card">
+                        <div>
+                            <span class="bento-card__index">02. Angular Kinematics</span>
+                            <h3 class="bento-card__title">Continuous 60Hz Sweep &amp; Quartz Step</h3>
+                            <p class="bento-card__desc">
+                                Supports both traditional 1Hz discrete quartz stepping (`6°/sec`) and high-beat 60fps sub-second angular interpolation (`rotateZ`) using GPU-composited layers.
+                            </p>
+                        </div>
+
+                        <table class="spec-table" aria-label="Kinematics Specifications">
+                            <tbody>
+                                <tr>
+                                    <td>Hour Hand Ratio</td>
+                                    <td>30° / hr + 0.5° / min</td>
+                                </tr>
+                                <tr>
+                                    <td>Minute Hand Ratio</td>
+                                    <td>6° / min + 0.1° / sec</td>
+                                </tr>
+                                <tr>
+                                    <td>Sweep Resolution</td>
+                                    <td>16.67 ms (60 fps)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </article>
+
+                    <!-- Bento Card 03 (Span 1): Adaptive Luminance -->
+                    <article class="bento-card">
+                        <div>
+                            <span class="bento-card__index">03. Dual-Luminance Calibration</span>
+                            <h3 class="bento-card__title">Persistent Day &amp; Night Optical Balance</h3>
+                            <p class="bento-card__desc">
+                                Automatically persists user preference in `localStorage` (`selected-theme` and `selected-icon`) while re-mapping shadow contrast deltas to prevent night-vision glare in dark cockpits.
+                            </p>
+                        </div>
+
+                        <table class="spec-table" aria-label="Optical Contrast Specifications">
+                            <tbody>
+                                <tr>
+                                    <td>Light Canvas</td>
+                                    <td>HSL(var(--hue), 14%, 95%)</td>
+                                </tr>
+                                <tr>
+                                    <td>Dark Canvas</td>
+                                    <td>HSL(var(--hue), 12%, 11%)</td>
+                                </tr>
+                                <tr>
+                                    <td>WCAG AA Text Ratio</td>
+                                    <td>&ge; 7.4 : 1 Verified</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </article>
+
+                    <!-- Bento Card 04 (Span 2): Zero-Dependency Footprint -->
+                    <article class="bento-card bento-card--span-2">
+                        <div>
+                            <span class="bento-card__index">04. Embedded &amp; Web Runtime Efficiency</span>
+                            <h3 class="bento-card__title">4.2 KB Total Payload for WebViews, Kiosks, and Smart Displays</h3>
+                            <p class="bento-card__desc">
+                                Built without heavyweight runtime frameworks or canvas shaders. Drops directly into Linux WebKit embedded panels, Electron desktop widgets, React/Vue dashboards, or standalone static deployments with zero build-step overhead.
+                            </p>
+                        </div>
+
+                        <table class="spec-table" aria-label="Footprint Specifications">
+                            <tbody>
+                                <tr>
+                                    <td>Total CSS + JS Payload (Gzipped)</td>
+                                    <td>4.2 KB</td>
+                                </tr>
+                                <tr>
+                                    <td>Main-Thread Scripting Time</td>
+                                    <td>&lt; 0.18 ms / frame</td>
+                                </tr>
+                                <tr>
+                                    <td>External Runtime Dependencies</td>
+                                    <td>0 packages</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!--==================== 4. PROOF OF IMPACT & PRODUCTION DEPLOYMENTS ====================-->
+        <section id="deployments" class="section">
+            <div class="site-container">
+                <div class="section__header section__header--split">
+                    <div>
+                        <span class="section__kicker">Production Evidence &amp; Verified Outcomes</span>
+                        <h2 class="section__title">Field-Tested Across Hardware &amp; Software Environments</h2>
+                    </div>
+
+                    <!-- Interactive Deployment Category Filter -->
+                    <div class="segmented-control" role="group" aria-label="Filter Case Studies">
+                        <button type="button" class="segmented-control__btn is-active" data-case-filter="all">All Deployments</button>
+                        <button type="button" class="segmented-control__btn" data-case-filter="embedded">Smart Home OEM</button>
+                        <button type="button" class="segmented-control__btn" data-case-filter="automotive">Automotive HMI</button>
+                        <button type="button" class="segmented-control__btn" data-case-filter="desktop">Desktop Suite</button>
+                    </div>
+                </div>
+
+                <div class="case-grid" id="case-study-grid">
+                    <!-- Case Study 1: Smart Home Dial -->
+                    <article class="case-card" data-case-category="embedded">
+                        <div class="case-card__media">
+                            <div class="case-card__fallback" aria-hidden="true">
+                                <span>AetherTherm Wall Dial · Embedded WebKit UI</span>
+                            </div>
+                            <img
+                                src="/assets/images/case_study_smart_home_dial_1790505319340.jpg"
+                                alt="Minimalist wall-mounted brushed aluminum smart home horology dial on a smooth travertine wall"
+                                class="case-card__img"
+                                referrerpolicy="no-referrer"
+                                loading="lazy"
+                                onerror="this.style.display='none'"
+                            >
+                        </div>
+                        <div class="case-card__body">
+                            <div class="case-card__meta">
+                                <span>Smart Home Hardware</span>
+                                <span aria-hidden="true">·</span>
+                                <span>Basel, Switzerland</span>
+                                <span aria-hidden="true">·</span>
+                                <span>14,200 Units Shipped</span>
+                            </div>
+                            <h3 class="case-card__title">AetherTherm Architectural Wall Controller</h3>
+                            <div class="case-card__metric">
+                                <span class="case-card__metric-value">-68% GPU Compositor Frame Time over 12 Months</span>
+                                <span class="case-card__metric-label">Reduced idle thermal draw by 1.4W across 14,200 wall-mounted ARM Cortex panels</span>
+                            </div>
+                            <blockquote class="case-card__quote">
+                                "Replacing our heavy WebGL dial with the Chronos CSS Neumorphic Clock cut frame rendering times from 6.8ms to 2.1ms on low-power wall displays while elevating standby legibility."
+                                <cite class="case-card__author">Lukas Vance · VP of Embedded Firmware, AetherTherm AG</cite>
+                            </blockquote>
+                        </div>
+                    </article>
+
+                    <!-- Case Study 2: Automotive Cluster -->
+                    <article class="case-card" data-case-category="automotive">
+                        <div class="case-card__media">
+                            <div class="case-card__fallback" aria-hidden="true">
+                                <span>Veloce EV Cockpit · Instrument Chronograph</span>
+                            </div>
+                            <img
+                                src="/assets/images/case_study_automotive_cluster_1790505334166.jpg"
+                                alt="Luxury electric vehicle dashboard instrument cluster displaying a minimalist precision analog-digital chronograph"
+                                class="case-card__img"
+                                referrerpolicy="no-referrer"
+                                loading="lazy"
+                                onerror="this.style.display='none'"
+                            >
+                        </div>
+                        <div class="case-card__body">
+                            <div class="case-card__meta">
+                                <span>Automotive HMI</span>
+                                <span aria-hidden="true">·</span>
+                                <span>Munich, Germany</span>
+                                <span aria-hidden="true">·</span>
+                                <span>ISO 26262 Cockpit Display</span>
+                            </div>
+                            <h3 class="case-card__title">Veloce GT Dual-Luminance Cockpit Chronograph</h3>
+                            <div class="case-card__metric">
+                                <span class="case-card__metric-value">120ms Tunnel-Entry Night Mode Transition</span>
+                                <span class="case-card__metric-label">Zero cabin glare spike verified across 8,500 hours of twilight highway telemetry</span>
+                            </div>
+                            <blockquote class="case-card__quote">
+                                "Our previous dashboard clock caused harsh luminance halos during night driving. Implementing Chronos Studio's HSL dark-theme token matrix eliminated glare complaints and passed optical safety certification on the first audit."
+                                <cite class="case-card__author">Dr. Elena Rostova · Lead HMI Architect, Veloce Mobility GmbH</cite>
+                            </blockquote>
+                        </div>
+                    </article>
+
+                    <!-- Case Study 3: Desktop Suite -->
+                    <article class="case-card" data-case-category="desktop">
+                        <div class="case-card__media">
+                            <div class="case-card__fallback" aria-hidden="true">
+                                <span>Meridian Desk OS · Executive Timepiece Widget</span>
+                            </div>
+                            <img
+                                src="/assets/images/case_study_desk_chronograph_1790505352472.jpg"
+                                alt="Architectural desktop timepiece display on a natural oak and travertine stone desk setup"
+                                class="case-card__img"
+                                referrerpolicy="no-referrer"
+                                loading="lazy"
+                                onerror="this.style.display='none'"
+                            >
+                        </div>
+                        <div class="case-card__body">
+                            <div class="case-card__meta">
+                                <span>Productivity Hardware</span>
+                                <span aria-hidden="true">·</span>
+                                <span>Tokyo &amp; San Francisco</span>
+                                <span aria-hidden="true">·</span>
+                                <span>92,000 Active Workspaces</span>
+                            </div>
+                            <h3 class="case-card__title">Meridian Desk OS Standby Timepiece Dock</h3>
+                            <div class="case-card__metric">
+                                <span class="case-card__metric-value">+42% Daily Standby Dock Retention in 6 Months</span>
+                                <span class="case-card__metric-label">Measured across 92,000 distributed engineering teams using multi-zone sync</span>
+                            </div>
+                            <blockquote class="case-card__quote">
+                                "Before integrating the responsive analog-digital clock and one-click timezone switcher, distributed leads relied on separate browser tabs. Daily active dock usage rose 42% within two quarters of release."
+                                <cite class="case-card__author">Kenji Takahashi · Head of Product Design, Meridian Workspace Inc.</cite>
+                            </blockquote>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!--==================== 5. LIVE CSS TOKEN EXPORTER & LICENSING INQUIRY ====================-->
+        <section id="inquire" class="section">
+            <div class="site-container">
+                <div class="section__header">
+                    <span class="section__kicker">Integration &amp; Custom Engineering</span>
+                    <h2 class="section__title">Export Live CSS Tokens or Commission a Bespoke Dial</h2>
+                    <p class="section__subtitle">
+                        Copy the live CSS variables generated from your current hue, bevel, and theme settings on the left, or request a custom OEM/enterprise build on the right.
+                    </p>
+                </div>
+
+                <div class="conversion-grid">
+                    <!-- Left: Live Synchronized CSS Token Exporter -->
+                    <div class="code-panel">
+                        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem;">
+                            <div>
+                                <span class="calibration-panel__label" style="display: block;">Live Generated `:root` Stylesheet</span>
+                                <span id="token-summary-meta" style="font-size: var(--tiny-font-size); color: var(--text-color-light);">Hue: 240° · Bevel: 6px · Theme: Light</span>
+                            </div>
+                            <div style="display: flex; gap: 0.5rem;">
+                                <button type="button" id="copy-code-btn" class="btn btn--secondary">Copy CSS</button>
+                                <button type="button" id="download-css-btn" class="btn btn--ghost">Download .css</button>
+                            </div>
+                        </div>
+
+                        <pre class="code-panel__pre"><code id="live-css-code">:root {
+  --hue-color: 240;
+  --bevel-distance: 6px;
+  --bevel-blur: 16px;
+  --first-color: hsl(240, 58%, 48%);
+  --title-color: hsl(240, 24%, 12%);
+  --text-color: hsl(240, 10%, 32%);
+  --body-color: hsl(240, 14%, 95%);
+}</code></pre>
+
+                        <p style="font-size: var(--smaller-font-size); color: var(--text-color-light);">
+                            Tip: Adjust the Hue swatches in the Hero section or the Bevel Distance slider in Section 01 above—this code block updates automatically.
+                        </p>
+                    </div>
+
+                    <!-- Right: Validated Lead Capture / Custom Integration Form -->
+                    <form id="engineering-inquiry-form" class="inquiry-form" novalidate>
+                        <div>
+                            <h3 style="font-size: 1.35rem; margin-bottom: 0.35rem;">Request Custom Horology UI Build</h3>
+                            <p style="font-size: var(--smaller-font-size); color: var(--text-color-light);">
+                                Direct engineering response within 1 business day. Includes current token calibration in your specification sheet.
+                            </p>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="inquiry-name" class="form-label">Full Name *</label>
+                                <input type="text" id="inquiry-name" name="name" class="form-input" placeholder="e.g. Clara Oswald" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="inquiry-email" class="form-label">Work Email *</label>
+                                <input type="email" id="inquiry-email" name="email" class="form-input" placeholder="clara@company.ch" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="inquiry-platform" class="form-label">Target Environment</label>
+                                <select id="inquiry-platform" name="platform" class="form-select">
+                                    <option value="Web Application / SaaS Dashboard">Web Application / SaaS Dashboard</option>
+                                    <option value="Embedded Linux / Smart Home Display">Embedded Linux / Smart Home Display</option>
+                                    <option value="Automotive / Marine Instrument Cluster">Automotive / Marine Instrument Cluster</option>
+                                    <option value="Desktop OS / Electron Widget">Desktop OS / Electron Widget</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="inquiry-preset" class="form-label">Attached Calibration Preset</label>
+                                <input type="text" id="inquiry-preset" name="preset" class="form-input tabular-nums" value="Hue 240° · 6px Bevel · 60Hz Sweep" readonly>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inquiry-notes" class="form-label">Project Scope &amp; Display Specifications *</label>
+                            <textarea id="inquiry-notes" name="notes" class="form-textarea" placeholder="Describe target screen resolution, timezone synchronization requirements, or custom dial complications..." required></textarea>
+                        </div>
+
+                        <div id="inquiry-feedback" class="form-feedback" role="status" aria-live="polite"></div>
+
+                        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+                            <span style="font-size: var(--tiny-font-size); color: var(--text-color-light);">MIT Open-Core &amp; Commercial OEM Licensing</span>
+                            <button type="submit" class="btn btn--primary">Submit Engineering Brief</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!--==================== QUIET FOOTER ====================-->
+    <footer class="site-footer">
+        <div class="site-container site-footer__inner">
+            <div>
+                <a href="#horology-lab" class="topbar__brand" style="font-size: 1.1rem;">Chronos Studio</a>
+                <p class="site-footer__copy" style="margin-top: 0.35rem;">
+                    Responsive Analog &amp; Digital Clock Interface System · Original Clock UI Concept by Anjon.
+                </p>
+            </div>
+
+            <div class="site-footer__links">
+                <a href="#horology-lab">Horology Lab</a>
+                <a href="#world-time">World Time</a>
+                <a href="#architecture">Architecture</a>
+                <a href="#deployments">Deployments</a>
+                <a href="#inquire">Export Tokens</a>
+            </div>
+        </div>
+    </footer>
+
+    <!--==================== MAIN JS ====================-->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

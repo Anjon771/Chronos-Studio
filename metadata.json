@@ -1,0 +1,5 @@
+{
+  "name": "Responsive Clock UI",
+  "description": "A responsive analog and digital clock interface with light and dark theme support.",
+  "requestFramePermissions": []
+}
